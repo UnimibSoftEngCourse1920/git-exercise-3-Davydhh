@@ -956,7 +956,7 @@ public class Assert {
         MatcherAssert.assertThat(reason, actual, matcher);
     }
     
-    public <T> boolean assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) {
+    public static <T> boolean assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) {
         if (comparator.compare(o1, o2) > 0)
             return true;
         else

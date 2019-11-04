@@ -1,6 +1,7 @@
 package org.junit.tests.assertion;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import java.util.Comparator;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertArrayEquals;
@@ -647,5 +648,25 @@ public class AssertionTest {
     @Test(expected = AssertionError.class)
     public void assertNotEqualsIgnoresFloatDeltaOnNaN() {
         assertNotEquals(Float.NaN, Float.NaN, 1f);
+    }
+    
+    @Test
+    public void assertGreaterThan() {
+        Object o1 = new Object();
+        o1 = 2;
+        Object o2 = new Object();
+        o2 = 1;
+        assertTrue(Assert.assertGreaterThan(o1,o2, new Comparator<Object>() {
+            public int compare(Object o1, Object o2) {
+                int x = (Integer) o1;
+                int y = (Integer) o2;
+                if (x > y)
+                    return 1;
+                if (x < y)
+                    return -1;
+                else 
+                    return 0;
+            }
+        }));
     }
 }
