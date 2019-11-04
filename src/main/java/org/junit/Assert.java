@@ -1031,4 +1031,32 @@ public class Assert {
     private static String buildPrefix(String message) {
         return message != null && message.length() != 0 ? message + ": " : "";
     }
+    
+    public static boolean assertGreaterThan(int o1, int o2, java.util.Comparator<Integer> comparator) {
+        if (comparator.compare(o1, o2) > 0)
+            return true;
+        else
+            return false;
+    }
+    
+    public static boolean assertGreaterThan(String o1, String o2, java.util.Comparator<String> comparator) {
+        if (comparator.compare(o1, o2) > 0)
+            return true;
+        else
+            return false;
+    }
+    
+    public static boolean assertGreaterThan(Character o1, Character o2, java.util.Comparator<Character> comparator) {
+        if (comparator.compare(o1, o2) > 0)
+            return true;
+        else
+            return false;
+    }
+    
+    public static boolean assertGreaterThan(Double o1, Double o2, java.util.Comparator<Double> comparator) {
+        if (comparator.compare(o1, o2) > 0)
+            return true;
+        else
+            return false;
+    }
 }
