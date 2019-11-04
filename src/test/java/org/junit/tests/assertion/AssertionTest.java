@@ -16,6 +16,7 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Comparator;
 
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
@@ -1001,5 +1002,35 @@ public class AssertionTest {
                 throw t;
             }
         };
+    }
+    
+    @Test
+    public void assertGreater() {
+        assertTrue(Assert.assertGreaterThan(2,1,new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return o1-o2;
+            }
+        }));
+        
+        assertTrue(Assert.assertGreaterThan(3.0,2.0,new Comparator<Double>() {
+            public int compare(Double o1, Double o2) {
+                if ((o1-o2) < 0)
+                    return -1;
+                else
+                    return (int)(o1-02);
+            }
+        }));
+        
+        assertTrue(Assert.assertGreaterThan("bbb","aaa",new Comparator<String>() {
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        }));
+        
+        assertTrue(Assert.assertGreaterThan('b','a',new Comparator<Character>() {
+            public int compare(Character o1, Character o2) {
+                return o1-o2;
+            }
+        }));
     }
 }
