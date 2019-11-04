@@ -652,11 +652,7 @@ public class AssertionTest {
     
     @Test
     public void assertGreaterThan() {
-        Object o1 = new Object();
-        o1 = 2;
-        Object o2 = new Object();
-        o2 = 1;
-        assertTrue(Assert.assertGreaterThan(o1,o2, new Comparator<Object>() {
+        assertTrue(Assert.assertGreaterThan(2,1, new Comparator<Object>() {
             public int compare(Object o1, Object o2) {
                 int x = (Integer) o1;
                 int y = (Integer) o2;
